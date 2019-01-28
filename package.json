@@ -1,0 +1,27 @@
+{
+  "name": "@polpware/ngx-net-crud",
+  "version": "7.0.0",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0",
+    "@polpware/fe-data": "https://github.com/polpware-frontend-modules/polpware-fe-data.git",
+    "@polpware/fe-utilities": "https://github.com/polpware-frontend-modules/polpware-fe-utilities.git",
+    "@polpware/ngx-rxjs": "https://github.com/polpware-frontend-modules/polpware-ngx-rxjs.git",
+    "@polpware/ngx-events": "https://github.com/polpware-frontend-modules/polpware-ngx-events.git",
+    "@polpware/ngx-spinner": "https://github.com/polpware-frontend-modules/polpware-ngx-spinner.git",
+    "@polpware/ngx-model": "https://github.com/polpware-frontend-modules/polpware-ngx-model.git"
+  },
+  "main": "bundles/polpware-ngx-net-crud.umd.js",
+  "module": "fesm5/polpware-ngx-net-crud.js",
+  "es2015": "fesm2015/polpware-ngx-net-crud.js",
+  "esm5": "esm5/polpware-ngx-net-crud.js",
+  "esm2015": "esm2015/polpware-ngx-net-crud.js",
+  "fesm5": "fesm5/polpware-ngx-net-crud.js",
+  "fesm2015": "fesm2015/polpware-ngx-net-crud.js",
+  "typings": "polpware-ngx-net-crud.d.ts",
+  "metadata": "polpware-ngx-net-crud.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
