@@ -1,15 +1,15 @@
 {
   "name": "@polpware/ngx-net-crud",
-  "version": "7.0.0",
+  "version": "9.0.0",
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0",
-    "@polpware/fe-data": "https://github.com/polpware-frontend-modules/polpware-fe-data.git",
-    "@polpware/fe-utilities": "https://github.com/polpware-frontend-modules/polpware-fe-utilities.git",
-    "@polpware/ngx-rxjs": "https://github.com/polpware-frontend-modules/polpware-ngx-rxjs.git",
-    "@polpware/ngx-events": "https://github.com/polpware-frontend-modules/polpware-ngx-events.git",
-    "@polpware/ngx-spinner": "https://github.com/polpware-frontend-modules/polpware-ngx-spinner.git",
-    "@polpware/ngx-model": "https://github.com/polpware-frontend-modules/polpware-ngx-model.git"
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@polpware/fe-data": "^9.0.0",
+    "@polpware/fe-utilities": "^9.0.0",
+    "@polpware/ngx-rxjs": "^9.0.0",
+    "@polpware/ngx-events": "^9.0.0",
+    "@polpware/ngx-spinner": "^9.0.0",
+    "@polpware/ngx-model": "^9.0.0"
   },
   "main": "bundles/polpware-ngx-net-crud.umd.js",
   "module": "fesm5/polpware-ngx-net-crud.js",
@@ -19,9 +19,11 @@
   "fesm5": "fesm5/polpware-ngx-net-crud.js",
   "fesm2015": "fesm2015/polpware-ngx-net-crud.js",
   "typings": "polpware-ngx-net-crud.d.ts",
-  "metadata": "polpware-ngx-net-crud.metadata.json",
   "sideEffects": false,
   "dependencies": {
-    "tslib": "^1.9.0"
+    "tslib": "^1.10.0"
+  },
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy. This is not allowed.\\nPlease delete and rebuild the package, without compiling with Ivy, before attempting to publish.\\n')\" && exit 1"
   }
 }

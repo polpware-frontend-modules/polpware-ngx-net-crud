@@ -6,19 +6,7 @@ import { GlobalEventsService } from '@polpware/ngx-events';
 import { NullSpinner } from '@polpware/ngx-spinner';
 import { __extends } from 'tslib';
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @abstract
- * @template T
- */
-var  /**
- * @abstract
- * @template T
- */
-ObservableCurdService = /** @class */ (function () {
+var ObservableCurdService = /** @class */ (function () {
     function ObservableCurdService(injector) {
         this.withCredentialOnRequest = true;
         this.subject = new BehaviorSubject([]);
@@ -26,94 +14,26 @@ ObservableCurdService = /** @class */ (function () {
         this.eventsService = injector.get(GlobalEventsService);
         this.spinner = new NullSpinner();
     }
-    /**
-     * @protected
-     * @param {?} error
-     * @return {?}
-     */
-    ObservableCurdService.prototype.handleError = /**
-     * @protected
-     * @param {?} error
-     * @return {?}
-     */
-    function (error) {
+    ObservableCurdService.prototype.handleError = function (error) {
         this.eventsService.broadcast('http-error', [error]);
     };
-    /**
-     * @return {?}
-     */
-    ObservableCurdService.prototype.onDataChange = /**
-     * @return {?}
-     */
-    function () {
+    ObservableCurdService.prototype.onDataChange = function () {
         return this.subject.asObservable();
     };
     // Default methods
-    // Default methods
-    /**
-     * @protected
-     * @param {?} record
-     * @param {?} data
-     * @return {?}
-     */
-    ObservableCurdService.prototype.parseCreateResponse = 
-    // Default methods
-    /**
-     * @protected
-     * @param {?} record
-     * @param {?} data
-     * @return {?}
-     */
-    function (record, data) {
-        /** @type {?} */
+    ObservableCurdService.prototype.parseCreateResponse = function (record, data) {
         var id = data;
         record.id = id;
         return record;
     };
-    /**
-     * @protected
-     * @param {?} record
-     * @param {?} data
-     * @return {?}
-     */
-    ObservableCurdService.prototype.parseUpdateResponse = /**
-     * @protected
-     * @param {?} record
-     * @param {?} data
-     * @return {?}
-     */
-    function (record, data) {
+    ObservableCurdService.prototype.parseUpdateResponse = function (record, data) {
         return record;
     };
-    /**
-     * @protected
-     * @param {?} data
-     * @return {?}
-     */
-    ObservableCurdService.prototype.parseListResponse = /**
-     * @protected
-     * @param {?} data
-     * @return {?}
-     */
-    function (data) {
+    ObservableCurdService.prototype.parseListResponse = function (data) {
         return data;
     };
     // Returns a list of entities
-    // Returns a list of entities
-    /**
-     * @protected
-     * @param {?} options
-     * @return {?}
-     */
-    ObservableCurdService.prototype.listRequest = 
-    // Returns a list of entities
-    /**
-     * @protected
-     * @param {?} options
-     * @return {?}
-     */
-    function (options) {
-        /** @type {?} */
+    ObservableCurdService.prototype.listRequest = function (options) {
         var httpParams = new HttpParams();
         for (var k in options) {
             if (options.hasOwnProperty(k)) {
@@ -125,17 +45,7 @@ ObservableCurdService = /** @class */ (function () {
             params: httpParams
         });
     };
-    /**
-     * @param {?} options
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    ObservableCurdService.prototype.getListAsync = /**
-     * @param {?} options
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    function (options, mySpinner) {
+    ObservableCurdService.prototype.getListAsync = function (options, mySpinner) {
         var _this = this;
         if (mySpinner === void 0) { mySpinner = null; }
         // In most cases, we do not need to send out a request
@@ -143,13 +53,11 @@ ObservableCurdService = /** @class */ (function () {
         if (this.getListGuard()) {
             return liftIntoReject('not allowed');
         }
-        /** @type {?} */
         var spinner = mySpinner || this.spinner;
         spinner.show();
         return toPromise(this.listRequest(options))
             .then(function (data) {
             spinner.hide();
-            /** @type {?} */
             var newData = _this.parseListResponse(data);
             _this.notifyList(newData);
             return newData;
@@ -160,41 +68,17 @@ ObservableCurdService = /** @class */ (function () {
         });
     };
     // Use post instead of delete method to implement delelete ??
-    // Use post instead of delete method to implement delelete ??
-    /**
-     * @protected
-     * @param {?} id
-     * @return {?}
-     */
-    ObservableCurdService.prototype.deleteByIdRequest = 
-    // Use post instead of delete method to implement delelete ??
-    /**
-     * @protected
-     * @param {?} id
-     * @return {?}
-     */
-    function (id) {
+    ObservableCurdService.prototype.deleteByIdRequest = function (id) {
         return this.http.delete(this.deleteUrl(id), {
             withCredentials: this.withCredentialOnRequest
         });
     };
-    /**
-     * @param {?} id
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    ObservableCurdService.prototype.deleteByIdAsync = /**
-     * @param {?} id
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    function (id, mySpinner) {
+    ObservableCurdService.prototype.deleteByIdAsync = function (id, mySpinner) {
         var _this = this;
         if (mySpinner === void 0) { mySpinner = null; }
         if (this.deleteByIdGuard(id)) {
             return liftIntoReject('not allowed');
         }
-        /** @type {?} */
         var spinner = mySpinner || this.spinner;
         spinner.show();
         return toPromise(this.deleteByIdRequest(id))
@@ -208,33 +92,11 @@ ObservableCurdService = /** @class */ (function () {
             return error;
         });
     };
-    /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    ObservableCurdService.prototype.adaptorCreateInput = /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    function (record) {
+    ObservableCurdService.prototype.adaptorCreateInput = function (record) {
         return record;
     };
-    /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    ObservableCurdService.prototype.createRequest = /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    function (record) {
-        /** @type {?} */
+    ObservableCurdService.prototype.createRequest = function (record) {
         var body = {};
-        /** @type {?} */
         var tyRecord = this.adaptorCreateInput(record);
         for (var prop in tyRecord) {
             if (tyRecord.hasOwnProperty(prop)) {
@@ -245,20 +107,9 @@ ObservableCurdService = /** @class */ (function () {
             withCredentials: this.withCredentialOnRequest
         });
     };
-    /**
-     * @param {?} record
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    ObservableCurdService.prototype.createAsync = /**
-     * @param {?} record
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    function (record, mySpinner) {
+    ObservableCurdService.prototype.createAsync = function (record, mySpinner) {
         var _this = this;
         if (mySpinner === void 0) { mySpinner = null; }
-        /** @type {?} */
         var spinner = mySpinner || this.spinner;
         spinner.show();
         return toPromise(this.createRequest(record))
@@ -274,33 +125,11 @@ ObservableCurdService = /** @class */ (function () {
             return error;
         });
     };
-    /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    ObservableCurdService.prototype.adaptorUpdateInput = /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    function (record) {
+    ObservableCurdService.prototype.adaptorUpdateInput = function (record) {
         return record;
     };
-    /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    ObservableCurdService.prototype.updateRequest = /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    function (record) {
-        /** @type {?} */
+    ObservableCurdService.prototype.updateRequest = function (record) {
         var body = {};
-        /** @type {?} */
         var tyRecord = this.adaptorUpdateInput(record);
         for (var prop in tyRecord) {
             if (tyRecord.hasOwnProperty(prop)) {
@@ -311,20 +140,9 @@ ObservableCurdService = /** @class */ (function () {
             withCredentials: this.withCredentialOnRequest
         });
     };
-    /**
-     * @param {?} record
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    ObservableCurdService.prototype.updateAsync = /**
-     * @param {?} record
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    function (record, mySpinner) {
+    ObservableCurdService.prototype.updateAsync = function (record, mySpinner) {
         var _this = this;
         if (mySpinner === void 0) { mySpinner = null; }
-        /** @type {?} */
         var spinner = mySpinner || this.spinner;
         spinner.show();
         return toPromise(this.updateRequest(record))
@@ -344,200 +162,74 @@ ObservableCurdService = /** @class */ (function () {
     return ObservableCurdService;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @abstract
- * @template T
- */
-var  /**
- * @abstract
- * @template T
- */
-ObservableDuetTableService = /** @class */ (function (_super) {
+var ObservableDuetTableService = /** @class */ (function (_super) {
     __extends(ObservableDuetTableService, _super);
     function ObservableDuetTableService(injector) {
         return _super.call(this, injector) || this;
     }
-    /**
-     * @private
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.buildPublishData = /**
-     * @private
-     * @return {?}
-     */
-    function () {
-        /** @type {?} */
-        var models = (/** @type {?} */ (this.primaryTable.dataProvider().models));
-        /** @type {?} */
-        var data = models.map(function (x) { return (/** @type {?} */ (x.attributes)); });
+    ObservableDuetTableService.prototype.buildPublishData = function () {
+        var models = this.primaryTable.dataProvider().models;
+        var data = models.map(function (x) { return x.attributes; });
         return data;
     };
-    /**
-     * @protected
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.listenToPrimaryTable = /**
-     * @protected
-     * @return {?}
-     */
-    function () {
+    ObservableDuetTableService.prototype.listenToPrimaryTable = function () {
         var _this = this;
         this.primaryTable.dataProvider().on('update', function () {
             console.log('Received pimary table updates');
-            /** @type {?} */
             var data = _this.buildPublishData();
             _this.subject.next(data);
         });
     };
-    /**
-     * @protected
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.publishInitData = /**
-     * @protected
-     * @return {?}
-     */
-    function () {
-        /** @type {?} */
+    ObservableDuetTableService.prototype.publishInitData = function () {
         var data = this.buildPublishData();
         this.subject.next(data);
     };
     // Override
-    // Override
-    /**
-     * @protected
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.getListGuard = 
-    // Override
-    /**
-     * @protected
-     * @return {?}
-     */
-    function () {
+    ObservableDuetTableService.prototype.getListGuard = function () {
         return false;
     };
     // Implement
-    // Implement
-    /**
-     * @param {?} id
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.getById = 
-    // Implement
-    /**
-     * @param {?} id
-     * @return {?}
-     */
-    function (id) {
-        /** @type {?} */
+    ObservableDuetTableService.prototype.getById = function (id) {
         var model = this.primaryTable.get(id);
         if (model) {
-            return (/** @type {?} */ (model.attributes));
+            return model.attributes;
         }
         return null;
     };
-    /**
-     * @param {?} id
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.getByIdAsync = /**
-     * @param {?} id
-     * @param {?=} mySpinner
-     * @return {?}
-     */
-    function (id, mySpinner) {
+    ObservableDuetTableService.prototype.getByIdAsync = function (id, mySpinner) {
         if (mySpinner === void 0) { mySpinner = null; }
         throw new Error('Not implemented');
     };
     // Override
-    // Override
-    /**
-     * @protected
-     * @param {?} id
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.deleteByIdGuard = 
-    // Override
-    /**
-     * @protected
-     * @param {?} id
-     * @return {?}
-     */
-    function (id) {
+    ObservableDuetTableService.prototype.deleteByIdGuard = function (id) {
         return false;
     };
     // Override
-    // Override
-    /**
-     * @protected
-     * @param {?} id
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.notifyDelete = 
-    // Override
-    /**
-     * @protected
-     * @param {?} id
-     * @return {?}
-     */
-    function (id) {
+    ObservableDuetTableService.prototype.notifyDelete = function (id) {
         // Side effects
-        /** @type {?} */
         var model = this.primaryTable.get(id);
         if (model) {
             model.destroyFromTable();
         }
     };
     // Override
-    // Override
-    /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.notifyCreate = 
-    // Override
-    /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    function (record) {
+    ObservableDuetTableService.prototype.notifyCreate = function (record) {
         this.primaryTable.add(record);
     };
-    /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    ObservableDuetTableService.prototype.notifyUpdate = /**
-     * @protected
-     * @param {?} record
-     * @return {?}
-     */
-    function (record) {
+    ObservableDuetTableService.prototype.notifyUpdate = function (record) {
         // The following op basically update what we have ...
         this.primaryTable.add(record);
     };
     return ObservableDuetTableService;
 }(ObservableCurdService));
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+/*
+ * Public API Surface of ngx-net-crud
  */
 
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated bundle index. Do not edit.
  */
 
 export { ObservableCurdService, ObservableDuetTableService };
-
 //# sourceMappingURL=polpware-ngx-net-crud.js.map
