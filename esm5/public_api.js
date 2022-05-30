@@ -1,6 +1,0 @@
-/*
- * Public API Surface of ngx-net-crud
- */
-export * from './lib/services/observable-crud.service';
-export * from './lib/services/observable-duet-table.service';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0Bwb2xwd2FyZS9uZ3gtbmV0LWNydWQvIiwic291cmNlcyI6WyJwdWJsaWNfYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYyx3Q0FBd0MsQ0FBQztBQUN2RCxjQUFjLDhDQUE4QyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiBuZ3gtbmV0LWNydWRcbiAqL1xuXG5leHBvcnQgKiBmcm9tICcuL2xpYi9zZXJ2aWNlcy9vYnNlcnZhYmxlLWNydWQuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9zZXJ2aWNlcy9vYnNlcnZhYmxlLWR1ZXQtdGFibGUuc2VydmljZSc7XG5cbiJdfQ==
