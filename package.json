@@ -1,13 +1,13 @@
 {
   "name": "@polpware/ngx-net-crud",
-  "version": "15.0.0",
+  "version": "15.0.1",
   "dependencies": {
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0",
-    "@polpware/fe-data": "^13.0.0",
+    "@polpware/fe-data": "^15.0.0",
     "@polpware/fe-utilities": "^15.0.0",
     "@polpware/ngx-rxjs": "^15.0.0",
     "@polpware/ngx-events": "^15.0.0",
