@@ -1,18 +1,18 @@
 {
   "name": "@polpware/ngx-net-crud",
-  "version": "17.0.1",
+  "version": "18.0.0",
   "dependencies": {
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": "^17.0.0",
-    "@angular/core": "^17.0.0",
-    "@polpware/fe-data": "^17.0.0",
-    "@polpware/fe-utilities": "^17.0.0",
-    "@polpware/ngx-rxjs": "^17.0.0",
-    "@polpware/ngx-events": "^17.0.0",
-    "@polpware/ngx-spinner": "^17.0.0",
-    "@polpware/ngx-model": "^17.0.0"
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@polpware/fe-data": "^18.0.0",
+    "@polpware/fe-utilities": "^18.0.0",
+    "@polpware/ngx-rxjs": "^18.0.0",
+    "@polpware/ngx-events": "^18.0.0",
+    "@polpware/ngx-spinner": "^18.0.0",
+    "@polpware/ngx-model": "^18.0.0"
   },
   "module": "fesm2022/polpware-ngx-net-crud.mjs",
   "typings": "index.d.ts",
